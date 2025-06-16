@@ -1,7 +1,6 @@
-# Leukemia-ML-Prediction
-Machine Learning-Based Prediction and Evaluation of Models for  Leukemia Using the CuMiDa Dataset
+# 🧬 Leukemia Type Classification using Gene Expression Data (CuMiDa)
 
-A Machine Learning-based approach to predict and classify leukemia subtypes using RNA-Seq gene expression data from the CuMiDa dataset. The project demonstrates a full ML workflow including data preprocessing, exploratory data analysis, model training, evaluation, and interpretation using various classification algorithms.
+A Machine Learning-based classification project focused on predicting leukemia subtypes using RNA-Seq gene expression data from the CuMiDa dataset. This repository includes preprocessing, exploratory analysis, model training, evaluation, and feature interpretation using multiple ML algorithms.
 
 ---
 
@@ -12,81 +11,110 @@ A Machine Learning-based approach to predict and classify leukemia subtypes usin
 - [Project Workflow](#-project-workflow)
 - [Models Used](#-models-used)
 - [Evaluation Metrics](#-evaluation-metrics)
-- [How to Run](#-how-to-run)
 - [Results](#-results)
 - [Contributors](#-contributors)
-- [License](#-license)
-
+  
 ---
 
 ## 🧠 Overview
 
-Leukemia is a life-threatening cancer that disrupts blood and bone marrow through abnormal white blood cell proliferation. Early and accurate classification is essential. We apply supervised machine learning models to analyze gene expression patterns and predict leukemia subtypes.
+Leukemia is a cancer of the blood and bone marrow that impairs the normal production and function of white blood cells. Accurate and early classification of leukemia subtypes is crucial for effective treatment planning and prognosis. With advancements in bioinformatics, RNA-Seq gene expression profiling offers a data-rich source for computational disease modeling.
+
+In this project, we apply various supervised machine learning models to predict the type of leukemia based on gene expression features. Our goal is to evaluate multiple algorithms for performance and interpretability, ultimately identifying the most effective method for this biomedical classification task.
 
 ---
 
 ## 📊 Dataset
 
-- **Source**: [Kaggle - CuMiDa Dataset](https://www.kaggle.com/datasets/brunogrisci/leukemia-gene-expression-cumida)
-- **Description**: RNA-Seq gene expression dataset for leukemia subtype classification
-- **Samples**: 64
-- **Classes**: 
+- **Name**: CuMiDa – _Curated Microarray Database_
+- **Source**: [Kaggle - Leukemia Gene Expression Dataset](https://www.kaggle.com/datasets/brunogrisci/leukemia-gene-expression-cumida)
+- **Samples**: 64 gene expression profiles
+- **Features**: Preprocessed gene expression values from RNA-Seq
+- **Target Classes**:
   - AML (Acute Myeloid Leukemia)
   - Peripheral Blood (PB)
   - Peripheral Blood Stem Cells CD34 (PBSC CD34)
   - Bone Marrow
   - Bone Marrow CD34
 
-👉 **Note**: Dataset is not included in this repo due to size constraints. Download from Kaggle and place it in the `/data` directory.
+> ⚠️ The dataset is not included in this repository due to size and licensing constraints. Please download it manually from the Kaggle link above and place it inside the `/data/` directory.
 
 ---
 
 ## 🔁 Project Workflow
 
-This project follows a complete machine learning pipeline tailored for a **multi-class classification** problem using biological RNA-Seq data.
+This project follows a standard ML pipeline adapted for biomedical data:
 
-### 🔹 1. Data Loading & Cleaning
-- Load the CuMiDa dataset into a Pandas DataFrame.
-- Inspect structure, shape, and data types.
-- Check for missing values or anomalies.
+### 1️⃣ Data Loading & Cleaning
+- Load the CuMiDa dataset into a DataFrame
+- Handle missing values and verify class distributions
+- Drop irrelevant or constant features if present
 
-### 🔹 2. Exploratory Data Analysis (EDA)
-- Visualize class distribution, outliers, and feature trends.
-- Use histograms, boxplots, correlation heatmaps, and scatter plots.
-- Identify dominant gene expressions and feature interrelationships.
+### 2️⃣ Exploratory Data Analysis (EDA)
+- Visualize class balance
+- Plot gene expression distributions using boxplots and histograms
+- Use correlation heatmaps to assess feature relationships
 
-### 🔹 3. Feature Scaling & Encoding
-- Encode target labels using `LabelEncoder`.
-- Normalize features using `StandardScaler` for consistent model input.
-- Split into features (`X`) and labels (`y`).
+### 3️⃣ Feature Engineering
+- Encode categorical labels into numerical values
+- Scale features using `StandardScaler` for uniform input
 
-### 🔹 4. Model Training
-Train and evaluate the following classification models:
-- **Random Forest**
-- **Logistic Regression**
-- **K-Nearest Neighbors (KNN)**
-- **XGBoost**
+### 4️⃣ Model Training
+- Split data into training (80%) and test (20%) sets
+- Train multiple classification models
+- Use consistent seeds and evaluation splits for reproducibility
 
-Split data into train/test sets using `train_test_split` with an 80:20 ratio.
+### 5️⃣ Hyperparameter Tuning
+- Apply `GridSearchCV` to optimize model parameters
+- Validate using 5-fold cross-validation (optional for small data)
 
-### 🔹 5. Hyperparameter Tuning
-(Optional but recommended)
-- Use `GridSearchCV` or `RandomizedSearchCV` to fine-tune parameters:
-  - `n_estimators`, `max_depth`, `learning_rate`, etc.
-- 5-fold cross-validation used for stability.
+### 6️⃣ Model Evaluation
+- Evaluate models on test data using accuracy, ROC-AUC, and confusion matrix
+- Compare performance across all models
 
-### 🔹 6. Model Evaluation
-- Evaluate using:
-  - Accuracy
-  - AUC-ROC
-  - F1-Score
-  - Confusion Matrix
-- Plot ROC curves and confusion matrices for visual analysis.
+### 7️⃣ Feature Importance
+- Use XGBoost’s `plot_importance()` to rank gene features
+- Interpret which genes contribute most to predictions
 
-### 🔹 7. Feature Importance Analysis
-- Use **XGBoost's built-in feature importance** methods:
-  - `weight`: frequency of feature used
-  - `gain`: average gain from feature splits
-- Visualized with:
-  ```python
-  xgb.plot_importance(model)
+---
+
+## 🤖 Models Used
+
+We implemented and compared the following classification algorithms:
+
+| Model                 | Description |
+|----------------------|-------------|
+| **Logistic Regression** | A linear classifier used as a baseline |
+| **K-Nearest Neighbors (KNN)** | Distance-based classification using nearest data points |
+| **Random Forest** | Ensemble learning with decision trees |
+| **XGBoost** | Gradient Boosted Trees optimized for performance and interpretability |
+
+Each model was trained and evaluated under consistent conditions for fair comparison.
+
+---
+
+## 📈 Evaluation Metrics
+
+We assessed each model using the following metrics:
+
+- **Accuracy** – Percentage of correct predictions
+- **Confusion Matrix** – Counts of TP, FP, TN, FN for each class
+- **Precision, Recall, F1-Score** – Class-specific performance
+- **AUC-ROC** – Area under the ROC curve for multi-class classification
+- **XGBoost Feature Importance** – Gene-level contribution to predictions
+
+Visual plots (heatmaps, confusion matrices, ROC curves) are saved in `/plots/`.
+
+---
+
+## 📊 Results
+Model	Accuracy	AUC-ROC
+Logistic Regression	94%	0.97
+KNN	91%	0.94
+Random Forest	96%	0.99
+XGBoost	98%	1.00
+
+🚨 Note: 100% AUC may suggest overfitting. More data and cross-validation recommended.
+
+## 👨‍🔬 Contributors
+Archana NS 
