@@ -12,7 +12,7 @@ A Machine Learning-based classification project focused on predicting leukemia s
 - [Models Used](#-models-used)
 - [Evaluation Metrics](#-evaluation-metrics)
 - [Results](#-results)
-- [Contributors](#-contributors)
+- [Contributor](#-contributor)
   
 ---
 
@@ -108,13 +108,27 @@ Visual plots (heatmaps, confusion matrices, ROC curves) are saved in `/plots/`.
 ---
 
 ## 📊 Results
-Model	Accuracy	AUC-ROC
-Logistic Regression	94%	0.97
-KNN	91%	0.94
-Random Forest	96%	0.99
-XGBoost	98%	1.00
+✅ Logistic Regression
 
-🚨 Note: 100% AUC may suggest overfitting. More data and cross-validation recommended.
+Accuracy: 94%
+AUC-ROC: 0.97
 
-## 👨‍🔬 Contributors
+✅ K-Nearest Neighbors (KNN)
+
+Accuracy: 91%
+AUC-ROC: 0.94
+
+✅ Random Forest
+
+Accuracy: 96%
+AUC-ROC: 0.99
+
+✅ XGBoost
+
+Accuracy: 98%
+AUC-ROC: 1.00
+
+## ⚠️ Note: A perfect AUC-ROC of 1.00 for XGBoost may indicate overfitting, especially given the small dataset size. Additional validation and more samples are recommended for reliable generalization.
+
+## 👨‍🔬 Contributor
 Archana NS 
