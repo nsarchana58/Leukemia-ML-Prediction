@@ -111,24 +111,28 @@ Visual plots (heatmaps, confusion matrices, ROC curves) are saved in `/plots/`.
 ✅ Logistic Regression
 
 Accuracy: 94%
+
 AUC-ROC: 0.97
 
 ✅ K-Nearest Neighbors (KNN)
 
 Accuracy: 91%
+
 AUC-ROC: 0.94
 
 ✅ Random Forest
 
 Accuracy: 96%
+
 AUC-ROC: 0.99
 
 ✅ XGBoost
 
 Accuracy: 98%
+
 AUC-ROC: 1.00
 
-## ⚠️ Note: A perfect AUC-ROC of 1.00 for XGBoost may indicate overfitting, especially given the small dataset size. Additional validation and more samples are recommended for reliable generalization.
+⚠️ Note: A perfect AUC-ROC of 1.00 for XGBoost may indicate overfitting, especially given the small dataset size. Additional validation and more samples are recommended for reliable generalization.
 
 ## 👨‍🔬 Contributor
 Archana NS 
