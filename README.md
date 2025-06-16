@@ -12,7 +12,6 @@ A Machine Learning-based classification project focused on predicting leukemia s
 - [Models Used](#-models-used)
 - [Evaluation Metrics](#-evaluation-metrics)
 - [Results](#-results)
-- [Contributor](#-contributor)
   
 ---
 
@@ -133,6 +132,3 @@ Accuracy: 98%
 AUC-ROC: 1.00
 
 ⚠️ Note: A perfect AUC-ROC of 1.00 for XGBoost may indicate overfitting, especially given the small dataset size. Additional validation and more samples are recommended for reliable generalization.
-
-## 👨‍🔬 Contributor
-Archana NS 
