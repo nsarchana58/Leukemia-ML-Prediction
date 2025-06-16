@@ -1,0 +1,19 @@
+# Python Bytecode
+__pycache__/
+*.py[cod]
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Environment folders
+.env/
+.venv/
+env/
+
+# Data files (optional — if dataset is large)
+*.csv
+*.zip
+
+# OS files
+.DS_Store
+Thumbs.db
