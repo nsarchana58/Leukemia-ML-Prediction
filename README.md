@@ -5,7 +5,7 @@ A Machine Learning-based approach to predict and classify leukemia subtypes usin
 
 ---
 
-## 📚 Table of Contents
+##  Table of Contents
 
 - [Overview](#-overview)
 - [Dataset](#-dataset)
@@ -19,13 +19,13 @@ A Machine Learning-based approach to predict and classify leukemia subtypes usin
 
 ---
 
-## 🧠 Overview
+##  Overview
 
 Leukemia is a life-threatening cancer that disrupts blood and bone marrow through abnormal white blood cell proliferation. Early and accurate classification is essential. We apply supervised machine learning models to analyze gene expression patterns and predict leukemia subtypes.
 
 ---
 
-## 📊 Dataset
+##  Dataset
 
 - **Source**: [Kaggle - CuMiDa Dataset](https://www.kaggle.com/datasets/brunogrisci/leukemia-gene-expression-cumida)
 - **Description**: RNA-Seq gene expression dataset for leukemia subtype classification
@@ -37,11 +37,11 @@ Leukemia is a life-threatening cancer that disrupts blood and bone marrow throug
   - Bone Marrow
   - Bone Marrow CD34
 
-👉 **Note**: Dataset is not included in this repo due to size constraints. Download from Kaggle and place it in the `/data` directory.
+**Note**: Dataset is not included in this repo due to size constraints. Download from Kaggle and place it in the `/data` directory.
 
 ---
 
-## 🔁 Project Workflow
+## Project Workflow
 
 This project follows a complete machine learning pipeline tailored for a **multi-class classification** problem using biological RNA-Seq data.
 
